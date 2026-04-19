@@ -1,0 +1,25 @@
+name = "github-polls"
+main = "build/worker/shim.mjs"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[build]
+command = "cargo install -q worker-build && worker-build --release"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "github-polls"
+database_id = "REPLACE-WITH-YOUR-D1-ID"
+
+# Non-secret configuration
+[vars]
+GITHUB_APP_ID = "3426079"
+GITHUB_APP_SLUG = "my-polls-app"
+GITHUB_APP_CLIENT_ID = "Iv23liagFKczOK3nc43M"
+PUBLIC_BASE_URL = "https://github-polls.YOUR-ACCOUNT.workers.dev"
+
+# Secrets (set with `wrangler secret put NAME`):
+#   GITHUB_APP_PRIVATE_KEY    -- PEM PKCS#8 RSA private key for the GitHub App
+#   GITHUB_APP_CLIENT_SECRET  -- OAuth client secret of the GitHub App
+#   GITHUB_WEBHOOK_SECRET     -- webhook HMAC shared secret
+#   SESSION_HMAC_KEY          -- base64, at least 32 random bytes
