@@ -138,17 +138,7 @@ SESSION_HMAC_KEY=base64_any_variant_padding_ok
 VOTER_ID_HMAC_KEY=base64_any_variant_padding_ok
 ```
 
-### 2. `.gitignore`
-
-```gitignore name=.gitignore
-target/
-build/
-.wrangler/
-.dev.vars
-*.pem
-```
-
-### 3. Tunnel (GitHub needs to reach your laptop)
+### 2. Tunnel (GitHub needs to reach your laptop)
 
 ```bash
 brew install cloudflared        # or: brew install ngrok
@@ -164,13 +154,13 @@ Quick-tunnel URLs change on every restart. Each time, update **both**:
 For a stable hostname, create a named tunnel
 (`cloudflared tunnel create ...`).
 
-### 4. Run
+### 3. Run
 
 ```bash
 npx wrangler dev --local --persist-to .wrangler/state
 ```
 
-### 5. Try it
+### 4. Try it
 
 1. `https://<tunnel>/app/new` → submit question + `yourname/some-repo`.
 2. Install the App (first time only) → redirected to `/app/installed` →
