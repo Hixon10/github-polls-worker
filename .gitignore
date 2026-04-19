@@ -4,3 +4,7 @@ build/
 .dev.vars
 .idea
 node_modules
+
+# OS specific (examples)
+.DS_Store
+Thumbs.db
